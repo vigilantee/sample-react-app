@@ -14,8 +14,9 @@
 }
 
 .App-header {
-  min-height: 100vh;
+  max-height: 900vh;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -24,7 +25,7 @@
 }
 
 .halfScreen {
-  flex:1;
+  /* flex:1; */
   height: 100%;
   border-color: #61dafb;
   border-style: solid;

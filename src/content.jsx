@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import { Images } from "./Components/Images";
 
 class Content extends React.Component {
@@ -23,7 +24,8 @@ class Content extends React.Component {
   };
   render() {
     const { count } = this.state;
-    const { index, totalVoteFn, totalVote } = this.props;
+    const { index, totalVoteFn, totalVote, votes } = this.props;
+    console.log("redux is ....", votes);
     return (
       <div
         className="halfScreen"
@@ -36,4 +38,7 @@ class Content extends React.Component {
   }
 }
 
-export default Content;
+const mapStateToProps = state => ({ votes: state.votes });
+
+
+export default connect(mapStateToProps, null)(Content);

@@ -1,7 +1,13 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { createStore } from 'redux';
+
+import rootReducer from "./rootReducer";
 import "./App.css";
 import Content from "./content";
 import GoogleSignIn from "./Components/GsignIn";
+
+const store = createStore(rootReducer)
 
 class App extends React.Component {
   constructor(props) {
@@ -25,20 +31,22 @@ class App extends React.Component {
     const contentArray = [1, 2, 3, 4, 5];
     const { loggedIn, totalVote } = this.state;
     return (
-      <div className="App">
-        {loggedIn || <GoogleSignIn userloggedIn={this.userloggedIn} />}
-        <header className="App-header">
-          {contentArray.map((el, index) => (
-            <Content
-              key={el}
-              index={index}
-              totalVoteFn={this.totalVoteFn}
-              totalVote={totalVote}
-            />
-          ))}
-          Total Votes : {totalVote}
-        </header>
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          {loggedIn || <GoogleSignIn userloggedIn={this.userloggedIn} />}
+          <header className="App-header">
+            {contentArray.map((el, index) => (
+              <Content
+                key={el}
+                index={index}
+                totalVoteFn={this.totalVoteFn}
+                totalVote={totalVote}
+              />
+            ))}
+            Total Votes : {totalVote}
+          </header>
+        </div>
+      </Provider>
     );
   }
 }

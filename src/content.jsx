@@ -10,7 +10,7 @@ class Content extends React.Component {
       totalVoteFn
     } = this.props;
     let count = votes ? votes.reduce((a, b) => a + b, 0) : 0;
-    let currentVote = votes ? (votes[index] ? votes[index] : 0) : 0;
+    let currentVote = votes[index] ? votes[index] : 0;
     totalVoteFn(count);
     return (
       <div

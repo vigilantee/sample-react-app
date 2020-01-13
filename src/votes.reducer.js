@@ -2,7 +2,7 @@ function votes(state = { poll: [] }, action) {
   switch (action.type) {
     case "VOTE":
       let { index, vote } = action;
-      let {poll} = state;
+      let { poll } = state;
       poll[index] = vote;
       return { ...state, poll };
     case "RESET":

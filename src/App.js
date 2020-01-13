@@ -40,7 +40,6 @@ class App extends React.Component {
                 key={el}
                 index={index}
                 totalVoteFn={this.totalVoteFn}
-                totalVote={totalVote}
               />
             ))}
             Total Votes : {totalVote}

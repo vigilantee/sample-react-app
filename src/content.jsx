@@ -4,7 +4,11 @@ import { Images } from "./Components/Images";
 
 class Content extends React.Component {
   render() {
-    const { index, votes:{poll:votes}, totalVoteFn } = this.props;
+    const {
+      index,
+      votes: { poll: votes },
+      totalVoteFn
+    } = this.props;
     let count = votes ? votes.reduce((a, b) => a + b, 0) : 0;
     let currentVote = votes ? (votes[index] ? votes[index] : 0) : 0;
     totalVoteFn(count);

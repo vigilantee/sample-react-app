@@ -11,7 +11,7 @@ class Content extends React.Component {
     } = this.props;
     let count = votes ? votes.reduce((a, b) => a + b, 0) : 0;
     let currentVote = votes[index] ? votes[index] : 0;
-    totalVoteFn(count);
+    // totalVoteFn(count);
     return (
       <div
         className="halfScreen"
@@ -22,6 +22,7 @@ class Content extends React.Component {
           index={index}
           like={() => this.props.setVote(index, currentVote + 1)}
         />
+        <button onClick={() => totalVoteFn(count)}>Add To Cart</button>
       </div>
     );
   }

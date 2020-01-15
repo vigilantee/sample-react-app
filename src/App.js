@@ -1,13 +1,14 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { createStore } from 'redux';
+import { createStore } from "redux";
 
 import rootReducer from "./rootReducer";
 import "./App.css";
 import Content from "./content";
 import GoogleSignIn from "./Components/GsignIn";
+import { Cart } from "./Components/Cart";
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer);
 
 class App extends React.Component {
   constructor(props) {
@@ -34,15 +35,11 @@ class App extends React.Component {
       <Provider store={store}>
         <div className="App">
           {loggedIn || <GoogleSignIn userloggedIn={this.userloggedIn} />}
+          <Cart count={totalVote}/>
           <header className="App-header">
             {contentArray.map((el, index) => (
-              <Content
-                key={el}
-                index={index}
-                totalVoteFn={this.totalVoteFn}
-              />
+              <Content key={el} index={index} totalVoteFn={this.totalVoteFn} />
             ))}
-            Total Votes : {totalVote}
           </header>
         </div>
       </Provider>

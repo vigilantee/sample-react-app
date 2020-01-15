@@ -32,7 +32,7 @@ const mapStateToProps = state => ({ votes: state.votes });
 
 const mapDispatchToProps = dispatch => {
   return {
-    setVote: (index, vote) => dispatch({ type: "VOTE", index, vote })
+    setVote: (index, vote) => dispatch({ type: "CAST_VOTE", index, vote })
   };
 };
 

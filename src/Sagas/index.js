@@ -1,15 +1,7 @@
+import { all } from "redux-saga/effects";
 
-
-import { takeLatest, all } from 'redux-saga/effects';
-import { helloSaga } from './helloSaga';
-
-// function* vote(dispatch) {
-//     dispatch({ type: "CAST_VOTE" })
-// }
+import { vote } from "./vote.saga";
 
 export default function* rootSaga() {
-  yield all([
-      
-    takeLatest("CAST_VOTE", helloSaga)
-  ])
+  yield all([vote()]);
 }
